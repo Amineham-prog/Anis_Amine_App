@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.navbar-dark {
+   
+        background-color:#241b18;
+        padding:1px;
+        font-size: 20px ;
+    
   }
+  .nav-link,.navbar-brand {
+    color: #ffc947 !important;
+    margin: 0px 12px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.nav-link,.navbar-brand {
+  color: #ffc947 !important;
+}
+.nav-link:hover{
+  color: #28a745 !important;
+}
+.carousel{
+  
+    background: #241b18;
+    margin: 0px auto;
+    border: 1px solid #ffffff; 
+
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.row-header{
+    margin:0px auto;
+    padding:0px auto;
   }
-  to {
-    transform: rotate(360deg);
-  }
+  
+  .row-content {
+    margin: 0px auto;
+    padding: 15px 0px 15px 0px;
+    min-height: 400px; 
 }
+.mycard{
+  margin:  10px auto;
+  border:1px solid #ffff;
+  background-color: #ffc947;
+}
+.card:hover{
+  transform: scale(1.05);
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+  
+}
+.photo {
+  background-color:#ffc947;
+ width: 100%;
+ height:250px;
+ ;
+}
+.bodycard {
+
+  background-color: #241b18;
+  color:#ffc947;
+  opacity: 0.95;
+ 
+}
+
+.card-title{
+  font-size:20px;
+  color: #ffc947;
+  text-shadow: 1px 1px #28a745
+}
+
+.card-text{
+  color:#ffffff;
+} 
+
+
+  
+  .footer{
+    background-color: #D1C4E9;
+    margin:0px auto;
+    padding: 20px 0px 20px 0px;
+  }
+  
+  
+  address{
+    font-size:80%;
+    margin:0px;
+    color:#0f0f0f;
+  }
+  
