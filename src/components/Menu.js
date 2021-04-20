@@ -3,7 +3,7 @@ import {
     Card, CardText, CardBody, CardLink,
     CardTitle, CardSubtitle,CardImg,Button
   } from 'reactstrap';
-
+  import {Link } from 'react-router-dom';
 //---------------------data Form --------------------------------
 const items = [
     {
@@ -81,9 +81,14 @@ function CardMenu({item}){
               </Button>
               </div>
               <div className="col-6">
+              
+              
+              <Link to={`/menu/${item.id}`}>
               <Button className="btn btn btn-success float-right" style={{border:'1px solid #ffffff'} }>
           <span class="fa fa-sign-in"></span> View 
               </Button>
+                 </Link>
+            
               </div>
           </div>
           

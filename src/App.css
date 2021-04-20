@@ -5,6 +5,7 @@
         background-color:#241b18;
         padding:1px;
         font-size: 20px ;
+        opacity: 0.95;
     
   }
   .nav-link,.navbar-brand {
@@ -13,10 +14,10 @@
 }
 
 .nav-link,.navbar-brand {
-  color: #ffc947 !important;
+    color: #ffc947 !important;
 }
 .nav-link:hover{
-  color: #28a745 !important;
+    color: #28a745 !important;
 }
 .carousel{
   
@@ -73,16 +74,21 @@
 
 
   
+
+/*------------------Footer -------------- */
   .footer{
-    background-color: #D1C4E9;
+    bottom:0;
+    background-color: #241b18;
+    color: #ffc947;
     margin:0px auto;
-    padding: 20px 0px 20px 0px;
+   padding: 20px 0px 20px 0px;
+    opacity: 0.95;
   }
   
   
   address{
     font-size:80%;
     margin:0px;
-    color:#0f0f0f;
+    color:#ffc947;
   }
   
