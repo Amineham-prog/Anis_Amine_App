@@ -4,13 +4,32 @@ import Menu from './Menu';
 import Home from './Home';
 import Contact from './Contact';
 import Detail from './Detail'
-import Footer from './Footer'
+import Footer from './Footer';
+import ITEMS from '../data/ITEMS';
+import CAROUSSEL from '../data/CAROUSSEL'
+
 import {Switch, Route, Redirect } from 'react-router-dom';
 
-//------------Match item and direct to Detail component -------
-const MenuId = ({ match }) => {
+
+
+
+//----------Main Component here ----------------------
+class Main extends Component {
+  constructor(props){
+  super(props);
+  this.state={
+    items: ITEMS,
+   caroussel: CAROUSSEL,
+  };
+
+  }
+render(){
+
+  
+  //------------Match item and direct to Detail component -------
+const detailId = ({ match }) => {
   return (
-  <Detail itemid={match.params.userid} />
+  <Detail item={this.state.items.filter((item)=>item.id===match.params.userid)[0]} />
   );
 };
 //-----------------------------------------------------------
@@ -19,24 +38,48 @@ const MenuId = ({ match }) => {
 
 
 
+//---------------Match Categories and direct---------------------
+const MenuCat = ({ match }) => {
+  if(match.params.categories==="all")
+  {
+    return(<Menu items={this.state.items}/>)
+  }
+  else{
+    return (
+      <Menu items={this.state.items.filter((item)=>item.category===match.params.categories)} />
+      );
+  }}
+//--------------------------------------------------------------------------------------------
 
-const Main = ()=> {
 
-  return(
-  <React.Fragment>  
+
+
+
+//---------------------React Router here ---------------------------------------------------
+return(
+<React.Fragment>  
 <Header />
 <Switch>
-              <Route path='/home' component={Home} />
-              <Route exact path='/menu' component={Menu} />
-              <Route exact path="/menu/:userid" component={MenuId} />
+              <Route path='/home' component={() => <Home images={this.state.caroussel} />} />
+              <Route exact path='/menu/:categories' component={MenuCat} />
+              <Route exact path="/detail/:userid" component={detailId} />
               <Route exact path='/contactus' component={Contact}  />
             
               <Redirect to='/home' />
         </Switch>
         <Footer />
 </React.Fragment> 
-  )
-}
+
+)}}
+//----------------------------------------------------
+
+
+
+
+
+
+
+
 
 
 

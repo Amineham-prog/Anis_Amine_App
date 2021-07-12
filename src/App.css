@@ -19,6 +19,20 @@
 .nav-link:hover{
     color: #28a745 !important;
 }
+
+.test,.item {
+  background-color:#241b18;
+  color: #ffc947 !important;
+
+}
+
+.item:hover{
+  color: #28a745 !important;
+  background-color:#241b18;
+}
+
+
+
 .carousel{
   
     background: #241b18;

@@ -8,29 +8,13 @@ import {
 } from "reactstrap";
 
 //---------------------Carousselle ------------------------------------
-const items = [
-  {
-    src:"img/item0.png",
-    altText: "Slide 1",
-    caption: "Slide 1"
-  },
-  {
-    src:"img/item3.png",
-    altText: "Slide 2",
-    caption: "Slide 2"
-  },
-
-  {
-    src:"img/item2.png",
-    altText: "Slide 3",
-    caption: "Slide 3"
-  }
-];
-
 class HomeCarousel extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0 };
+    this.state = { 
+      activeIndex: 0,
+      images:this.props.images
+    };
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
     this.goToIndex = this.goToIndex.bind(this);
@@ -49,7 +33,7 @@ class HomeCarousel extends Component {
   next() {
     if (this.animating) return;
     const nextIndex =
-      this.state.activeIndex === items.length - 1
+      this.state.activeIndex === this.state.images.length - 1
         ? 0
         : this.state.activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
@@ -59,7 +43,7 @@ class HomeCarousel extends Component {
     if (this.animating) return;
     const nextIndex =
       this.state.activeIndex === 0
-        ? items.length - 1
+        ? this.state.images.length - 1
         : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   }
@@ -70,9 +54,10 @@ class HomeCarousel extends Component {
   }
 
   render() {
+   
     const { activeIndex } = this.state;
 
-    const slides = items.map((item) => {
+    const slides = this.state.images.map((item) => {
 
       return (
               
@@ -101,7 +86,7 @@ class HomeCarousel extends Component {
         previous={this.previous}
       >
         <CarouselIndicators
-          items={items}
+          items={this.state.images}
           activeIndex={activeIndex}
           onClickHandler={this.goToIndex}
         />
@@ -121,18 +106,19 @@ class HomeCarousel extends Component {
     );
   }
 }
-
+//-------------------------------END CAROUSSEL ------------------------------------------------
 
 
 
 //-------------------------------------------------------------------------------------
-
-const Home = ()=> {
+const Home = ({images})=> {
+  console.log(images)
     return(
+      
       <div className="container">
       <div classeName="row" style={{marginTop:"15px"}}>
           <div className="col">
-          <HomeCarousel /> 
+          <HomeCarousel images={images} /> 
           </div>
       
       </div>

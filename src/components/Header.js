@@ -1,5 +1,13 @@
 import React, { Component} from 'react';
-import { Navbar, NavbarBrand, Nav, NavbarToggler,Collapse, NavItem,Button } from 'reactstrap';
+import { Navbar, 
+        NavbarBrand, 
+        Nav, NavbarToggler,
+        Collapse, NavItem,
+        Button,
+        UncontrolledDropdown,
+        DropdownToggle,
+        DropdownMenu,
+        DropdownItem,} from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
 
@@ -33,7 +41,7 @@ return(//-------------------------Navbar -----------
         <NavbarToggler   onClick={this.toggleNav}  />
         
         
-        <NavbarBrand className="rounded float-left" href="/"><img src="img\1592953737104.jfif" class="rounded-circle" height="60" width="60"
+        <NavbarBrand className="rounded float-left" href="/"><img src="/img/1592953737104.jfif" class="rounded-circle" height="60" width="60"
         alt="Ristorante Con fusion"               
         />
         </NavbarBrand>
@@ -44,11 +52,24 @@ return(//-------------------------Navbar -----------
         <NavItem>
         <NavLink className="nav-link"  to='/home'><span className="fa fa-home fa-lg"></span> Home</NavLink>
         </NavItem>
-
-        <NavItem>
-        <NavLink className="nav-link"  to='/menu'><span className="fa fa-list fa-lg"></span> Menu</NavLink>
-        </NavItem>
-
+        <UncontrolledDropdown nav inNavbar >
+              <DropdownToggle  nav caret  >
+      <span className="fa fa-list fa-lg"></span> Menu
+              </DropdownToggle>
+              <DropdownMenu right className='test'>
+                <DropdownItem className='item'>
+                <NavLink className="nav-link"  to='/menu/Menu'>Menu</NavLink>
+                </DropdownItem>
+                <DropdownItem className='item'>
+                <NavLink className="nav-link"  to='/menu/dessert'>Dessert</NavLink>
+                </DropdownItem>
+                <DropdownItem  divider />
+                <DropdownItem className='item'>
+                <NavLink className="nav-link"  to='/menu/all'> ALL</NavLink>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+       
         <NavItem>
         <NavLink className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"></span> Contact Us</NavLink>
         </NavItem>
@@ -68,11 +89,6 @@ return(//-------------------------Navbar -----------
        
         </div>                          
         </Navbar>
-    
-     
-        
-          
-
 
 </div>
 
